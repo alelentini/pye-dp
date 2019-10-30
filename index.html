@@ -20,9 +20,15 @@
 	<body onload='initDP()' style='font-family:Calibri'>
 		<div class='container-fluid'>
 			<!-- Navigation bar -->
-			<nav class="navbar bg-light sticky-top">
+			<nav class="navbar bg-secondary text-light sticky-top">
 				<!-- Main Title -->
 				<h5 style='font-style:italic'><strong>Distribuciones de Probabilidad</strong></h5>
+				<!-- Alert Message -->
+				<div class='alert alert-warning float-right' role='alert' style='padding:2px;margin:0px'>
+					<strong><span style='font-size:120%'>&#9888;</span> Versión Alfa</strong>
+				</div>
+			</nav>
+			<nav class="navbar bg-light sticky-top">
 				<!-- Distribution Selector -->
 				<div class="dropdown float-left">
 					<div class="btn-group">
@@ -42,9 +48,6 @@
 							<a class="dropdown-item disabled" href="#">Normal</a>
 						</div>
 					</div>
-				</div>
-				<div class='alert alert-warning float-right' role='alert'>
-					<strong><span style='font-size:120%'>&#9888;</span> Versión Alfa</strong>
 				</div>
 			</nav>
 			<!-- Binomial Distribution -->

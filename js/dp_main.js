@@ -137,9 +137,8 @@ function update_bin_chart(n) {
             x: bin1.x,
             y: bin1.y2,
             type: 'scatter',
-            mode: 'lines+markers',
+            mode: 'markers',
             marker: {color: 'blue', size: 5},
-            line: {shape: 'hv', width: 0.8},
             hoverlabel: {bgcolor: 'white'},
             hovertemplate: '<i>P(X <= %{x}) = </i> <b>%{y:.4f}</b><extra></extra>',
         },
@@ -177,8 +176,29 @@ function update_bin_chart(n) {
             showgrid: false,
             ticks: 'outside',
             tickformat: '.2f'
-        }
+        },
+        shapes: [],
     };
+    // Populate data series for horizontal lines in CDF chart
+    for(var i = 0; i < bin1.x.length; i++) {
+        binChart.layout.shapes.push({type: 'line',
+                                     x0: bin1.x[i],
+                                     y0: bin1.y2[i],
+                                     x1: bin1.x[i] + 1,
+                                     y1: bin1.y2[i],
+                                     line: {color: '#99B3FF', width: 1}
+        });
+    }
+    // Populate data series for vertical lines in PMF chart
+    for(var i = 0; i < bin1.x.length; i++) {
+        binChart.layout.shapes.push({type: 'line',
+                                     x0: bin1.x[i],
+                                     y0: 0,
+                                     x1: bin1.x[i],
+                                     y1: bin1.y[i],
+                                     line: {color: '#FF6666', width: 1}
+        });
+    }
     if(n <= 30) {
         binChart.layout.xaxis.autotick = false;
         binChart.layout.xaxis.range = [0, n + 1];
@@ -215,6 +235,7 @@ function update_bin_table() {
             
     }
 }*/
+
 
 
 
@@ -261,24 +282,6 @@ function initDP() {
     // Updates Binomial Distribution
     update_bin_dis();
     
-    // Updates Latex
-    update_latex();
-}
-
-
-// Updates Latex
-function update_latex() {
-    
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis_formula']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis_ds_fmp']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis_ds_cdf']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis_ds_mean']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis-mean_lbl']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis-var_lbl']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis-n_lbl2']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis-p_lbl2']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis-otbl_f1']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis-otbl_f2']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis-otbl_f3']);
-    MathJax.Hub.Queue(['Typeset',MathJax.Hub,'bin-dis-otbl_f4']);
+    // Renders cells with Latex
+    MathJax.Hub.Typeset();
 }
