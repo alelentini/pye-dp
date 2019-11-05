@@ -4,8 +4,8 @@
 
 &nbsp;  
 
-Aplicación web que para las principales distribuciones de probabilidad permite graficarlas y obtener sus medidas descriptivas.
+Aplicación web para graficar y obtener medidas descriptivas de las principales distribuciones de probabilidad.
 
 &nbsp;  
 
-::hammer_and_wrench: **Trabajo en Progreso**: adaptando layout para visualización en teléfonos celulares.
+:hammer_and_wrench: **Trabajo en Progreso**: adaptando layout para visualización en teléfonos celulares.
