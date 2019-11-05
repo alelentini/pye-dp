@@ -1,4 +1,4 @@
- Calculadora simple de distribuciones de probabilidad
+#Calculadora simple de distribuciones de probabilidad
 
 :warning: **Versión Alpha**
 
